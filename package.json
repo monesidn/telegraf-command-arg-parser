@@ -15,7 +15,8 @@
     "prestart": "npm run build",
     "start": "node dist/index.js",
     "clean": "rimraf dist",
-    "prepublishOnly": "npm run build && npm run test"
+    "prepublishOnly": "npm run build && npm run test",
+    "gen-docs": "typedoc --out docs src"
   },
   "author": "Daniele Monesi",
   "license": "MIT",
@@ -29,7 +30,8 @@
     "jest": "^26.4.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.2.0",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "typedoc": "^0.18.0"
   },
   "dependencies": {
     "power-split": "^1.0.0",

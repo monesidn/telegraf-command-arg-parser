@@ -1,0 +1,273 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>NumberParserCfg | telegraf-command-arg-parser</title>
+	<meta name="description" content="Documentation for telegraf-command-arg-parser">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">telegraf-command-arg-parser</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="../modules/_middleware_with_args_number_parser_cfg_.html">&quot;middleware-with-args/number-parser-cfg&quot;</a>
+				</li>
+				<li>
+					<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html">NumberParserCfg</a>
+				</li>
+			</ul>
+			<h1>Interface NumberParserCfg</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Number parser configuration.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">NumberParserCfg</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#max" class="tsd-kind-icon">max</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#min" class="tsd-kind-icon">min</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#parser" class="tsd-kind-icon">parser</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#strict" class="tsd-kind-icon">strict</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="max" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max</h3>
+					<div class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L16">middleware-with-args/number-parser-cfg.ts:16</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional upper bound. If the parsed number is below the bound an error
+							is returned.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="min" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> min</h3>
+					<div class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L10">middleware-with-args/number-parser-cfg.ts:10</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Optional lower bound. If the parsed number is below the bound an error
+							is returned.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="parser" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> parser</h3>
+					<div class="tsd-signature tsd-kind-icon">parser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>i<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L34">middleware-with-args/number-parser-cfg.ts:34</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>To parse numbers supporting different locales pass here a parser bound to the right
+							locale. I suggest using a globalize-generated number parser.</p>
+						</div>
+						<p>By default (and to avoid extra dependancies) the parser will use <code>(i) =&gt; +i;</code>
+						that rely on javascript runtime settings.</p>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="strict" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> strict</h3>
+					<div class="tsd-signature tsd-kind-icon">strict<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L25">middleware-with-args/number-parser-cfg.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If set to false the parser will ignore some common mistake like (but not limited to):</p>
+							<ul>
+								<li>a space between sign and number, commonly inserted by phone keyboards (eg &quot;+ 5&quot;, &quot;- 100&quot;...)</li>
+								<li>one or more spaces between digits (eg 1 000 000 will be parsed as 1000000)
+									When not in strict mode the parser will try to consume all subsequent tokens that form
+								a valid number. Obviously strict parsing is faster but will degrade user experience.</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsed_argument_.html">&quot;common/parsed-<wbr>argument&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsed_command_.html">&quot;common/parsed-<wbr>command&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parser_result_.html">&quot;common/parser-<wbr>result&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsers_.html">&quot;common/parsers&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsing_errors_.html">&quot;common/parsing-<wbr>errors&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_middleware_with_args_arg_parser_builder_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_middleware_with_args_arg_parser_decorator_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>decorator&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_middleware_with_args_index_.html">&quot;middleware-<wbr>with-<wbr>args/index&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_middleware_with_args_number_parser_cfg_.html">&quot;middleware-<wbr>with-<wbr>args/number-<wbr>parser-<wbr>cfg&quot;</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module">
+						<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html" class="tsd-kind-icon">Number<wbr>Parser<wbr>Cfg</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#max" class="tsd-kind-icon">max</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#min" class="tsd-kind-icon">min</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#parser" class="tsd-kind-icon">parser</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#strict" class="tsd-kind-icon">strict</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

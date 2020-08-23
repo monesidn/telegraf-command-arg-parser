@@ -1,7 +1,7 @@
 import { MiddlewareFn } from 'telegraf/typings/composer';
 import { TelegrafContext } from 'telegraf/typings/context';
 import { ParsedCommand } from '../common/parsed-command';
-import { ArgParserBuilder, CompiledBuilder } from './arg-parser-builder';
+import { ArgParserBuilder } from './arg-parser-builder';
 
 /**
  * This interface defines the chape of a middleware function capable of receiving
@@ -30,17 +30,14 @@ export function middlewareWithArgs<C extends TelegrafContext>(
     argBuilder: ArgParserBuilder | ArgParserBuilderConfigurer,
     handler: MiddlewareWithArgsFn<C>
 ): MiddlewareFn<C> {
-    let parser : CompiledBuilder;
+    let middleware : MiddlewareFn<C>;
     if (argBuilder instanceof ArgParserBuilder) {
-        parser = argBuilder.toParser();
+        middleware = argBuilder.toMiddleware(handler);
     } else {
         const builder = new ArgParserBuilder();
         argBuilder(builder);
-        parser = builder.toParser();
+        middleware = builder.toMiddleware(handler);
     }
 
-    return (ctx: C, next: () => Promise<void>): void | Promise<unknown> => {
-        const args = parser(ctx.message?.text);
-        return handler(ctx, args, next);
-    };
+    return middleware;
 }

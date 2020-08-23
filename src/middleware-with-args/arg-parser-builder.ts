@@ -1,8 +1,11 @@
 import { PowerSplit, TokenWithIndexes } from 'power-split';
+import { MiddlewareFn } from 'telegraf/typings/composer';
+import { TelegrafContext } from 'telegraf/typings/context';
 import { ParsedArgument } from '../common/parsed-argument';
 import { ParsedCommand } from '../common/parsed-command';
 import { ParserResult } from '../common/parser-result';
 import { Parsers } from '../common/parsers';
+import { MiddlewareWithArgsFn } from './arg-parser-decorator';
 import { NumberParserCfg } from './number-parser-cfg';
 
 /**
@@ -12,11 +15,29 @@ interface ArgParserStep {
     (tokens: TokenWithIndexes[]): ParserResult;
 }
 
+
 /**
- * Return type of the toParser() method.
+ * If one or more arguments are not parsed correctly what should we do?
  */
-export interface CompiledBuilder {
-    (input?: string): ParsedCommand;
+export enum OnErrorAction {
+    /**
+     * The error is ignored and the handler function is called normally. Use
+     * this mode to handle errors manually.
+     */
+    IGNORE = 'IGNORE',
+
+    /**
+     * Don't call the handler at all but delegate to the next middleware in the
+     * chain.
+     */
+    CALL_NEXT = 'CALL_NEXT'
+}
+
+/**
+ * A built parser. This is the returned value of the `toParser()` function.
+ */
+export interface ArgParser {
+    (message: string): ParsedCommand;
 }
 
 /**
@@ -28,6 +49,12 @@ export class ArgParserBuilder {
      * executed one after another consuming one or more tokens.
      */
     private steps: ArgParserStep[] = [];
+
+    /**
+     * If configured call this function instead of the handler if
+     * one or more arguments are invalid.
+     */
+    private onErrorHandler?: MiddlewareWithArgsFn<any>;
 
     /**
      * Adds a parsing stage to extract a number.
@@ -85,13 +112,31 @@ export class ArgParserBuilder {
     }
 
     /**
-     * Returns a function that when called with a command message returns
-     * argument parsed accordingly to the built configuration.
+     * Provides a function to call if one or more arguments are invalid.
+     * @param arg - What should we do upon error? Pass one of the default actions ({@link OnErrorAction})
+     * or a custom handler function.
+     * @returns This builder instance for chaining calls.
      */
-    toParser(): CompiledBuilder {
+    public onError<C extends TelegrafContext>(arg: OnErrorAction | MiddlewareWithArgsFn<C> = OnErrorAction.IGNORE) {
+        if (arg === OnErrorAction.IGNORE) {
+            this.onErrorHandler = undefined;
+        } else if (arg === OnErrorAction.CALL_NEXT) {
+            this.onErrorHandler = (ctx, args, next) => next();
+        } else {
+            this.onErrorHandler = arg;
+        }
+        return this;
+    }
+
+    /**
+     * Returns a function that parses the given message accordingly to the configuration.
+     * This function only parse the command line: any middleware-related processing (like the
+     * onError Handler) is ignored.
+     */
+    toParser(): ArgParser {
         const stepsCopy = [...this.steps];
-        return (input = ''): ParsedCommand => {
-            const tokens = PowerSplit.splitWithIndexes(input, /\s/gu);
+        return (message: string): ParsedCommand => {
+            const tokens = PowerSplit.splitWithIndexes(message, /\s/gu);
 
             const command = tokens.shift()?.token || '';
             const args: ParsedArgument<any>[] = [];
@@ -103,7 +148,36 @@ export class ArgParserBuilder {
                 remaining = result.unconsumed;
             }
 
-            return { command, raw: input, args };
+            return { command, raw: message, args };
+        };
+    }
+
+    /**
+     * Returns a middleware that parse arguments and then, as configured
+     * will:
+     * - call the handler,
+     * - call the error handler or
+     * - call `next`
+     * @param handler - The handler function that will be called when needed.
+     * @param parser - An already built parser. If you called toParser() before and
+     * wish to reuse the same settings pass the instance here to avoid duplicating the
+     * object.
+     */
+    toMiddleware<C extends TelegrafContext>(
+        handler: MiddlewareWithArgsFn<C>,
+        parser = this.toParser()
+    ): MiddlewareFn<C> {
+        const errHandler = this.onErrorHandler;
+
+        return (ctx: C, next: () => Promise<void>): void | Promise<unknown> => {
+            const parsedCmd = parser(ctx.message?.text || '');
+
+            if (errHandler) {
+                if (parsedCmd.args.find((i) => !!i.error)) {
+                    return errHandler(ctx, parsedCmd, next);
+                }
+            }
+            return handler(ctx, parsedCmd, next);
         };
     }
 }

@@ -15,6 +15,10 @@ export interface NumberParserCfg{
      */
     max?: number;
 
+    // round?: boolean; // TODO
+
+    // rejectFloats: boolean; // TODO
+
     /**
      * If set to false the parser will ignore some common mistake like (but not limited to):
      *  - a space between sign and number, commonly inserted by phone keyboards (eg "+ 5", "- 100"...)
