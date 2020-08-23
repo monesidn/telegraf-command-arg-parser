@@ -79,7 +79,7 @@ This builder is the class where you need to declare what your command expect to 
 - `number()`: a number, there are a few options that can be specified as argument in a hash object:
     - `min`: a lower bound for the accepted range
     - `max`: an upper bound for the accepted range
-    - `strict`: whatever to use strict mode for parsing. See number-parser-cfg.ts]([src/middleware-with-args/number-parser-cfg.ts) for a more in-depth explanation.
+    - `strict`: whatever to use strict mode for parsing. See [number-parser-cfg.ts](src/middleware-with-args/number-parser-cfg.ts) for a more in-depth explanation.
     - `parser`: You can supply a custom parsing function to support i18n. Never pass `parseInt` here! See [number-parser-cfg.ts](src/middleware-with-args/number-parser-cfg.ts) for a more in-depth explanation.
 - `string()`: a string, no validation performed. Stops at first space.
 - `oneOf()`: a string from a list of accepted values. 
