@@ -120,7 +120,8 @@
 				<a href="#documentation" id="documentation" style="color: inherit; text-decoration: none;">
 					<h2>Documentation</h2>
 				</a>
-				<p>The code is fully documented using the tsdoc spec and I&#39;ve set up a gitpage site hosting it. You can find it here: // TODO</p>
+				<p>The code is fully documented using the tsdoc spec and I&#39;ve set up a gitpage site hosting it. You can find it here:
+				<a href="https://monesidn.github.io/telegraf-command-arg-parser/">https://monesidn.github.io/telegraf-command-arg-parser/</a></p>
 				<p>Anyway here&#39;s a quick overview of the library:</p>
 				<a href="#middlewarewithargs" id="middlewarewithargs" style="color: inherit; text-decoration: none;">
 					<h3><code>middlewareWithArgs</code></h3>
@@ -138,17 +139,28 @@
 				<a href="#argparserbuilder" id="argparserbuilder" style="color: inherit; text-decoration: none;">
 					<h3><code>ArgParserBuilder</code></h3>
 				</a>
-				<p>This builder is the class where you need to declare what your command expect to receive as argument. Currently the following argument types are supported:</p>
+				<p>This builder is the class where you need to declare what your command expect to receive as argument. Currently the following argument types are supported. Options are specified using an hash object.</p>
 				<ul>
-					<li><code>number()</code>: a number, there are a few options that can be specified as argument in a hash object:<ul>
+					<li><code>number()</code>: parse a number. Options:<ul>
+							<li><code>default</code>: When there is nothing to parse returns this value instead of an error.</li>
 							<li><code>min</code>: a lower bound for the accepted range</li>
 							<li><code>max</code>: an upper bound for the accepted range</li>
-							<li><code>strict</code>: whatever to use strict mode for parsing. See <a href="number-parser-cfg.ts">src/middleware-with-args/number-parser-cfg.ts</a> for a more in-depth explanation.</li>
-							<li><code>parser</code>: You can supply a custom parsing function to support i18n. Never pass <code>parseInt</code> here! See <a href="number-parser-cfg.ts">src/middleware-with-args/number-parser-cfg.ts</a> for a more in-depth explanation.</li>
+							<li><code>round</code>: if <code>true</code> round the value to an integer</li>
+							<li><code>rejectFloats</code>: if <code>true</code> and a float value is parsed return an error. Take priority over <code>round</code>. </li>
+							<li><code>strict</code>: whatever to use strict mode for parsing. See <a href="src/middleware-with-args/number-parser-cfg.ts">number-parser-cfg.ts</a> for a more in-depth explanation.</li>
+							<li><code>parser</code>: You can supply a custom parsing function to support i18n. Never pass <code>parseInt</code> here! See <a href="src/middleware-with-args/number-parser-cfg.ts">number-parser-cfg.ts</a> for a more in-depth explanation.</li>
 						</ul>
 					</li>
-					<li><code>string()</code>: a string, no validation performed. Stops at first space.</li>
-					<li><code>oneOf()</code>: a string from a list of accepted values. </li>
+					<li><code>string()</code>: parse a string, no validation performed. Stops at first space. Options:<ul>
+							<li><code>default</code>: When there is nothing to parse returns this value instead of an error.</li>
+						</ul>
+					</li>
+					<li><code>oneOf()</code>: a string from a list of accepted values. Options:<ul>
+							<li><code>default</code>: When there is nothing to parse returns this value instead of an error.</li>
+							<li><code>accepted</code>: The value that can be parsed.</li>
+							<li><code>caseSensitive</code>: Should the match be case sensitive?</li>
+						</ul>
+					</li>
 					<li><code>rest()</code>: what was not consumed by other arguments in a single string argument. </li>
 					<li><code>custom()</code>: What to do custom parsing? Pass your function here. </li>
 				</ul>
@@ -173,6 +185,9 @@
 						<a href="modules/_common_parsers_.html">&quot;common/parsers&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/_common_parsers_cfg_.html">&quot;common/parsers-<wbr>cfg&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/_common_parsing_errors_.html">&quot;common/parsing-<wbr>errors&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -186,9 +201,6 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/_middleware_with_args_index_.html">&quot;middleware-<wbr>with-<wbr>args/index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/_middleware_with_args_number_parser_cfg_.html">&quot;middleware-<wbr>with-<wbr>args/number-<wbr>parser-<wbr>cfg&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -204,6 +216,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>

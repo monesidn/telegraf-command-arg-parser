@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;common/parsed-command&quot; | telegraf-command-arg-parser</title>
+	<title>BasicParserCfg | telegraf-command-arg-parser</title>
 	<meta name="description" content="Documentation for telegraf-command-arg-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,26 +56,79 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_common_parsed_command_.html">&quot;common/parsed-command&quot;</a>
+					<a href="../modules/_common_parsers_cfg_.html">&quot;common/parsers-cfg&quot;</a>
+				</li>
+				<li>
+					<a href="_common_parsers_cfg_.basicparsercfg.html">BasicParserCfg</a>
 				</li>
 			</ul>
-			<h1>Module &quot;common/parsed-command&quot;</h1>
+			<h1>Interface BasicParserCfg&lt;T&gt;</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Basic parser configuration</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-type-parameters">
+				<h3>Type parameters</h3>
+				<ul class="tsd-type-parameters">
+					<li>
+						<h4>T</h4>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">BasicParserCfg</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="_common_parsers_cfg_.numberparsercfg.html" class="tsd-signature-type">NumberParserCfg</a>
+							</li>
+							<li>
+								<a href="_common_parsers_cfg_.oneofparsercfg.html" class="tsd-signature-type">OneOfParserCfg</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_common_parsed_command_.parsedcommand.html" class="tsd-kind-icon">Parsed<wbr>Command</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.basicparsercfg.html#default" class="tsd-kind-icon">default</a></li>
 							</ul>
 						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="default" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> default</h3>
+					<div class="tsd-signature tsd-kind-icon">default<span class="tsd-signature-symbol">:</span> <a href="" class="tsd-signature-type">T</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in common/parsers-cfg.ts:10</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If the parser have nothing to parse (so it&#39;s going to return a MISSING error)
+							and a default value was provided then it will return that value (and no error).</p>
+						</div>
 					</div>
 				</section>
 			</section>
@@ -87,41 +140,62 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_common_parsed_argument_.html">&quot;common/parsed-<wbr>argument&quot;</a>
+						<a href="../modules/_common_parsed_argument_.html">&quot;common/parsed-<wbr>argument&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsed_command_.html">&quot;common/parsed-<wbr>command&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parser_result_.html">&quot;common/parser-<wbr>result&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsers_.html">&quot;common/parsers&quot;</a>
 					</li>
 					<li class="current tsd-kind-module">
-						<a href="_common_parsed_command_.html">&quot;common/parsed-<wbr>command&quot;</a>
+						<a href="../modules/_common_parsers_cfg_.html">&quot;common/parsers-<wbr>cfg&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_common_parser_result_.html">&quot;common/parser-<wbr>result&quot;</a>
+						<a href="../modules/_common_parsing_errors_.html">&quot;common/parsing-<wbr>errors&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_common_parsers_.html">&quot;common/parsers&quot;</a>
+						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_common_parsers_cfg_.html">&quot;common/parsers-<wbr>cfg&quot;</a>
+						<a href="../modules/_middleware_with_args_arg_parser_builder_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_common_parsing_errors_.html">&quot;common/parsing-<wbr>errors&quot;</a>
+						<a href="../modules/_middleware_with_args_arg_parser_decorator_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>decorator&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_index_.html">&quot;index&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_middleware_with_args_arg_parser_builder_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>builder&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_middleware_with_args_arg_parser_decorator_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>decorator&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="_middleware_with_args_index_.html">&quot;middleware-<wbr>with-<wbr>args/index&quot;</a>
+						<a href="../modules/_middleware_with_args_index_.html">&quot;middleware-<wbr>with-<wbr>args/index&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_common_parsers_cfg_.basicparsercfg.html" class="tsd-kind-icon">Basic<wbr>Parser<wbr>Cfg</a>
+						<ul>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_parsers_cfg_.basicparsercfg.html#default" class="tsd-kind-icon">default</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_common_parsed_command_.parsedcommand.html" class="tsd-kind-icon">Parsed<wbr>Command</a>
+						<a href="_common_parsers_cfg_.numberparsercfg.html" class="tsd-kind-icon">Number<wbr>Parser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_common_parsers_cfg_.oneofparsercfg.html" class="tsd-kind-icon">One<wbr>OfParser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_common_parsers_cfg_.html#validatenumberparsercfg" class="tsd-kind-icon">validate<wbr>Number<wbr>Parser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_common_parsers_cfg_.html#validateoneofparsercfg" class="tsd-kind-icon">validate<wbr>One<wbr>OfParser<wbr>Cfg</a>
 					</li>
 				</ul>
 			</nav>
@@ -140,6 +214,7 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

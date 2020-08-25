@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_middleware_with_args_number_parser_cfg_.html">&quot;middleware-with-args/number-parser-cfg&quot;</a>
+					<a href="../modules/_common_parsers_cfg_.html">&quot;common/parsers-cfg&quot;</a>
 				</li>
 				<li>
-					<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html">NumberParserCfg</a>
+					<a href="_common_parsers_cfg_.numberparsercfg.html">NumberParserCfg</a>
 				</li>
 			</ul>
 			<h1>Interface NumberParserCfg</h1>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Number parser configuration.</p>
+						<p>Number arguments parser configuration.</p>
 					</div>
 				</div>
 			</section>
@@ -80,7 +80,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">NumberParserCfg</span>
+						<a href="_common_parsers_cfg_.basicparsercfg.html" class="tsd-signature-type">BasicParserCfg</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">NumberParserCfg</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -91,10 +96,13 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#max" class="tsd-kind-icon">max</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#min" class="tsd-kind-icon">min</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#parser" class="tsd-kind-icon">parser</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#strict" class="tsd-kind-icon">strict</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_common_parsers_cfg_.numberparsercfg.html#default" class="tsd-kind-icon">default</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.numberparsercfg.html#max" class="tsd-kind-icon">max</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.numberparsercfg.html#min" class="tsd-kind-icon">min</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.numberparsercfg.html#parser" class="tsd-kind-icon">parser</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.numberparsercfg.html#rejectfloats" class="tsd-kind-icon">reject<wbr>Floats</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.numberparsercfg.html#round" class="tsd-kind-icon">round</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_common_parsers_cfg_.numberparsercfg.html#strict" class="tsd-kind-icon">strict</a></li>
 							</ul>
 						</section>
 					</div>
@@ -102,13 +110,30 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="default" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> default</h3>
+					<div class="tsd-signature tsd-kind-icon">default<span class="tsd-signature-symbol">:</span> <a href="" class="tsd-signature-type">T</a></div>
+					<aside class="tsd-sources">
+						<p>Inherited from <a href="_common_parsers_cfg_.basicparsercfg.html">BasicParserCfg</a>.<a href="_common_parsers_cfg_.basicparsercfg.html#default">default</a></p>
+						<ul>
+							<li>Defined in common/parsers-cfg.ts:10</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>If the parser have nothing to parse (so it&#39;s going to return a MISSING error)
+							and a default value was provided then it will return that value (and no error).</p>
+						</div>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="max" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> max</h3>
 					<div class="tsd-signature tsd-kind-icon">max<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L16">middleware-with-args/number-parser-cfg.ts:16</a></li>
+							<li>Defined in common/parsers-cfg.ts:28</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -124,7 +149,7 @@
 					<div class="tsd-signature tsd-kind-icon">min<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L10">middleware-with-args/number-parser-cfg.ts:10</a></li>
+							<li>Defined in common/parsers-cfg.ts:22</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -140,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">parser<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">(</span>i<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L34">middleware-with-args/number-parser-cfg.ts:34</a></li>
+							<li>Defined in common/parsers-cfg.ts:59</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -153,12 +178,45 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="rejectfloats" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> reject<wbr>Floats</h3>
+					<div class="tsd-signature tsd-kind-icon">reject<wbr>Floats<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in common/parsers-cfg.ts:41</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Set this flag to true if you wish for a parsing error to be issued when
+							a float number is parsed. This flag has priority over <code>round</code></p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="round" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> round</h3>
+					<div class="tsd-signature tsd-kind-icon">round<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in common/parsers-cfg.ts:35</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Should the parsed value be rounded? Use this flag if you wish to receive
+								an integer number automatically recovering from a float input. If parse
+							error behaviour is preferred use the <code>rejectFloats</code> flag instead.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="strict" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> strict</h3>
 					<div class="tsd-signature tsd-kind-icon">strict<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/middleware-with-args/number-parser-cfg.ts#L25">middleware-with-args/number-parser-cfg.ts:25</a></li>
+							<li>Defined in common/parsers-cfg.ts:50</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -193,6 +251,9 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_common_parsers_.html">&quot;common/parsers&quot;</a>
 					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_common_parsers_cfg_.html">&quot;common/parsers-<wbr>cfg&quot;</a>
+					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_common_parsing_errors_.html">&quot;common/parsing-<wbr>errors&quot;</a>
 					</li>
@@ -208,34 +269,52 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_middleware_with_args_index_.html">&quot;middleware-<wbr>with-<wbr>args/index&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
-						<a href="../modules/_middleware_with_args_number_parser_cfg_.html">&quot;middleware-<wbr>with-<wbr>args/number-<wbr>parser-<wbr>cfg&quot;</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="_common_parsers_cfg_.basicparsercfg.html" class="tsd-kind-icon">Basic<wbr>Parser<wbr>Cfg</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html" class="tsd-kind-icon">Number<wbr>Parser<wbr>Cfg</a>
+						<a href="_common_parsers_cfg_.numberparsercfg.html" class="tsd-kind-icon">Number<wbr>Parser<wbr>Cfg</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#max" class="tsd-kind-icon">max</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_common_parsers_cfg_.numberparsercfg.html#default" class="tsd-kind-icon">default</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#min" class="tsd-kind-icon">min</a>
+								<a href="_common_parsers_cfg_.numberparsercfg.html#max" class="tsd-kind-icon">max</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#parser" class="tsd-kind-icon">parser</a>
+								<a href="_common_parsers_cfg_.numberparsercfg.html#min" class="tsd-kind-icon">min</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_middleware_with_args_number_parser_cfg_.numberparsercfg.html#strict" class="tsd-kind-icon">strict</a>
+								<a href="_common_parsers_cfg_.numberparsercfg.html#parser" class="tsd-kind-icon">parser</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_parsers_cfg_.numberparsercfg.html#rejectfloats" class="tsd-kind-icon">reject<wbr>Floats</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_parsers_cfg_.numberparsercfg.html#round" class="tsd-kind-icon">round</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_common_parsers_cfg_.numberparsercfg.html#strict" class="tsd-kind-icon">strict</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_common_parsers_cfg_.oneofparsercfg.html" class="tsd-kind-icon">One<wbr>OfParser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_common_parsers_cfg_.html#validatenumberparsercfg" class="tsd-kind-icon">validate<wbr>Number<wbr>Parser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="../modules/_common_parsers_cfg_.html#validateoneofparsercfg" class="tsd-kind-icon">validate<wbr>One<wbr>OfParser<wbr>Cfg</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -246,13 +325,14 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>

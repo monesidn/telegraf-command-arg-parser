@@ -21,6 +21,11 @@ export enum ParsingErrors {
     OUT_OF_RANGE = 'OUT_OF_RANGE',
 
     /**
+     * The parser was configured to reject floats but the parsed value is not an integer.
+     */
+    FLOAT_REJECTED = 'FLOAT_REJECTED',
+
+    /**
      * When parsing a string and a set of allowed value is provided this error is
      * reported if the parsed value is not in the specified set.
      */

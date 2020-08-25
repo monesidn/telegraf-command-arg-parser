@@ -1,6 +1,7 @@
 import { PowerSplit, TokenWithIndexes } from 'power-split';
 import { ParsedArgument } from './parsed-argument';
 import { ParserResult } from './parser-result';
+import { BasicParserCfg, NumberParserCfg, OneOfParserCfg } from './parsers-cfg';
 import { ParsingErrors } from './parsing-errors';
 
 export type NumberParser = (val: string) => number;
@@ -10,37 +11,45 @@ export type NumberParser = (val: string) => number;
  */
 export class Parsers {
     /**
+     * Internal convenience method to return a ParserResult object.
+     * @param value -
+     * @param raw -
+     * @param unconsumed -
+     */
+    private static result<T>(value: T, raw?: string, unconsumed: TokenWithIndexes[] = []): ParserResult {
+        return { result: new ParsedArgument(value, raw), unconsumed };
+    }
+
+    /**
+     * Internal convenience method to return a ParserResult error.
+     * @param value -
+     * @param raw -
+     * @param unconsumed -
+     */
+    private static error<T>(error: ParsingErrors, raw?: string, unconsumed: TokenWithIndexes[] = []): ParserResult {
+        return { result: ParsedArgument.error(error, raw), unconsumed };
+    }
+
+    /**
      * Parse a number consuming one or more tokens.
      * @param tokens - Unparsed tokens.
-     * @param min - Optional lower bound. If the parsed number is below the bound an error
-     * is returned.
-     * @param max - Optional upper bound. If the parsed number is below the bound an error
-     * is returned.
-     * @param strict - If set to false the parser will ignore some common mistake like (but not limited to):
-     *  - a space between sign and number, commonly inserted by phone keyboards (eg "+ 5", "- 100"...)
-     *  - one or more spaces between digits (eg 1 000 000 will be parsed as 1000000)
-     * When not in strict mode the parser will try to consume all subsequent tokens that form
-     * a valid number. Obviously strict parsing is faster but will degrade user experience.
-     * @param parser - To parse numbers supporting different locales pass here a parser bound to the right
-     * locale. I suggest using a globalize-generated number parser. By default (and to avoid extra dependancies)
-     * the parser will use `(i) => +i`; that rely on javascript runtime settings.
+     * @param cfg - A configuration object.
      * @returns an object with a ParsedArgument and the remaining tokens.
      */
     static number(
         tokens: TokenWithIndexes[],
-        min?: number,
-        max?: number,
-        strict = false,
-        parser = (i: string) => +i
+        cfg: NumberParserCfg
     ): ParserResult {
         if (!tokens || tokens.length === 0) {
             // Nothing to parse.
-            return {
-                result: ParsedArgument.error(ParsingErrors.MISSING),
-                unconsumed: tokens
-            };
+            if (cfg.default !== undefined)
+                return this.result(cfg.default);
+
+            return this.error(ParsingErrors.MISSING);
         }
 
+        const { min, max, round, rejectFloats, strict } = cfg;
+        const parser = cfg.parser || ((i) => +i);
         let parsedNumber: number;
         let unconsumed: TokenWithIndexes[];
         let consumedUntil: TokenWithIndexes;
@@ -57,6 +66,14 @@ export class Parsers {
                 // a valid number.
                 const parsed = parser(tokens.slice(0, c+1).map((i) => i.token).join(''));
                 if (!isNaN(parsed)) {
+                    if (parsed === lastValidValue) {
+                        // To support parsers like parseInt that parse only the valid
+                        // part we update lastValidIndex and lastValidValue only if the
+                        // parsed value changed from previous iteractions. This way we
+                        // will cosume only those parts that have an actual meaning.
+                        continue;
+                    }
+
                     // We found a valid number.
                     lastValidIndex = c;
                     lastValidValue = parsed;
@@ -80,21 +97,19 @@ export class Parsers {
         const consumedString = PowerSplit.substring(tokens[0], consumedUntil);
 
         if (isNaN(parsedNumber))
-            return {
-                result: ParsedArgument.error(ParsingErrors.SYNTAX_ERROR, consumedString),
-                unconsumed
-            };
+            return this.error(ParsingErrors.SYNTAX_ERROR, consumedString, unconsumed);
 
         if ((min !== undefined && parsedNumber < min) || (max !== undefined && parsedNumber > max))
-            return {
-                result: ParsedArgument.error(ParsingErrors.OUT_OF_RANGE, consumedString),
-                unconsumed
-            };
+            return this.error(ParsingErrors.OUT_OF_RANGE, consumedString, unconsumed);
 
-        return {
-            result: new ParsedArgument(parsedNumber, consumedString),
-            unconsumed
-        };
+        if (rejectFloats && !Number.isInteger(parsedNumber))
+            return this.error(ParsingErrors.FLOAT_REJECTED, consumedString, unconsumed);
+
+        if (round) {
+            parsedNumber = Math.round(parsedNumber);
+        }
+
+        return this.result(parsedNumber, consumedString, unconsumed);
     }
 
     /**
@@ -102,38 +117,36 @@ export class Parsers {
      * @param tokens - Unparsed tokens.
      * @returns an object with a ParsedArgument and the remaining tokens.
      */
-    static string(tokens: TokenWithIndexes[]): ParserResult {
+    static string(tokens: TokenWithIndexes[], cfg: BasicParserCfg<string>): ParserResult {
         if (!tokens || tokens.length === 0) {
             // Nothing to parse.
-            return {
-                result: ParsedArgument.error(ParsingErrors.MISSING),
-                unconsumed: tokens
-            };
+            if (cfg.default !== undefined)
+                return this.result(cfg.default);
+
+            return this.error(ParsingErrors.MISSING);
         }
 
         const result = tokens[0].token;
-        return {
-            result: new ParsedArgument(result, result),
-            unconsumed: tokens.slice(1)
-        };
+        return this.result(result, result, tokens.slice(1));
     }
 
     /**
      * Extract a string only if listed in the accepted array. Optionally
      * the match can be case sensitive.
      * @param tokens - Unparsed tokens.
-     * @param accepted - The accepted strings.
-     * @param caseSensitive - If true (default) ignore case while searching for the value.
      * @returns an object with a ParsedArgument and the remaining tokens.
      */
-    static oneOf(tokens: TokenWithIndexes[], accepted: string[], caseSensitive = true): ParserResult {
+    static oneOf(tokens: TokenWithIndexes[], cfg: OneOfParserCfg): ParserResult {
         if (!tokens || tokens.length === 0) {
             // Nothing to parse.
-            return {
-                result: ParsedArgument.error(ParsingErrors.MISSING),
-                unconsumed: tokens
-            };
+            if (cfg.default !== undefined)
+                return this.result(cfg.default);
+
+            return this.error(ParsingErrors.MISSING);
         }
+
+        const accepted = cfg.accepted || [];
+        const caseSensitive = cfg.caseSensitive === undefined ? true : cfg.caseSensitive;
 
         const toParse = tokens[0].token;
         let item;
@@ -144,15 +157,9 @@ export class Parsers {
         }
 
         if (item)
-            return {
-                result: new ParsedArgument(item, toParse),
-                unconsumed: tokens.slice(1)
-            };
+            return this.result(item, toParse, tokens.slice(1));
 
-        return {
-            result: ParsedArgument.error(ParsingErrors.VALUE_NOT_LISTED, toParse),
-            unconsumed: tokens.slice(1)
-        };
+        return this.error(ParsingErrors.VALUE_NOT_LISTED, toParse, tokens.slice(1));
     }
 
     /**

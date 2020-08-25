@@ -75,14 +75,21 @@ The second argument is the handler that will receive 3 arguments
 When configuring the instance of `ArgParserBuilder` you can specify if the handler should always be called or only when valid arguments are found. 
 
 ### `ArgParserBuilder`
-This builder is the class where you need to declare what your command expect to receive as argument. Currently the following argument types are supported:
-- `number()`: a number, there are a few options that can be specified as argument in a hash object:
+This builder is the class where you need to declare what your command expect to receive as argument. Currently the following argument types are supported. Options are specified using an hash object.
+- `number()`: parse a number. Options:
+    - `default`: When there is nothing to parse returns this value instead of an error.
     - `min`: a lower bound for the accepted range
     - `max`: an upper bound for the accepted range
+    - `round`: if `true` round the value to an integer
+    - `rejectFloats`: if `true` and a float value is parsed return an error. Take priority over `round`. 
     - `strict`: whatever to use strict mode for parsing. See [number-parser-cfg.ts](src/middleware-with-args/number-parser-cfg.ts) for a more in-depth explanation.
     - `parser`: You can supply a custom parsing function to support i18n. Never pass `parseInt` here! See [number-parser-cfg.ts](src/middleware-with-args/number-parser-cfg.ts) for a more in-depth explanation.
-- `string()`: a string, no validation performed. Stops at first space.
-- `oneOf()`: a string from a list of accepted values. 
+- `string()`: parse a string, no validation performed. Stops at first space. Options:
+    - `default`: When there is nothing to parse returns this value instead of an error.
+- `oneOf()`: a string from a list of accepted values. Options:
+    - `default`: When there is nothing to parse returns this value instead of an error.
+    - `accepted`: The value that can be parsed.
+    - `caseSensitive`: Should the match be case sensitive?
 - `rest()`: what was not consumed by other arguments in a single string argument. 
 - `custom()`: What to do custom parsing? Pass your function here. 
 

@@ -83,6 +83,7 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_common_parsing_errors_.parsingerrors.html#float_rejected" class="tsd-kind-icon">FLOAT_<wbr>REJECTED</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_common_parsing_errors_.parsingerrors.html#missing" class="tsd-kind-icon">MISSING</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_common_parsing_errors_.parsingerrors.html#out_of_range" class="tsd-kind-icon">OUT_<wbr>OF_<wbr>RANGE</a></li>
 								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="_common_parsing_errors_.parsingerrors.html#syntax_error" class="tsd-kind-icon">SYNTAX_<wbr>ERROR</a></li>
@@ -95,12 +96,27 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="float_rejected" class="tsd-anchor"></a>
+					<h3>FLOAT_<wbr>REJECTED</h3>
+					<div class="tsd-signature tsd-kind-icon">FLOAT_<wbr>REJECTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;FLOAT_REJECTED&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/a88b979/src/common/parsing-errors.ts#L26">common/parsing-errors.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The parser was configured to reject floats but the parsed value is not an integer.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
 					<a name="missing" class="tsd-anchor"></a>
 					<h3>MISSING</h3>
 					<div class="tsd-signature tsd-kind-icon">MISSING<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;MISSING&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/common/parsing-errors.ts#L8">common/parsing-errors.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/a88b979/src/common/parsing-errors.ts#L8">common/parsing-errors.ts:8</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -115,7 +131,7 @@
 					<div class="tsd-signature tsd-kind-icon">OUT_<wbr>OF_<wbr>RANGE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;OUT_OF_RANGE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/common/parsing-errors.ts#L21">common/parsing-errors.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/a88b979/src/common/parsing-errors.ts#L21">common/parsing-errors.ts:21</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -131,7 +147,7 @@
 					<div class="tsd-signature tsd-kind-icon">SYNTAX_<wbr>ERROR<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;SYNTAX_ERROR&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/common/parsing-errors.ts#L15">common/parsing-errors.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/a88b979/src/common/parsing-errors.ts#L15">common/parsing-errors.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -148,7 +164,7 @@
 					<div class="tsd-signature tsd-kind-icon">VALUE_<wbr>NOT_<wbr>LISTED<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;VALUE_NOT_LISTED&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/b949b90/src/common/parsing-errors.ts#L27">common/parsing-errors.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/a88b979/src/common/parsing-errors.ts#L32">common/parsing-errors.ts:32</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,6 +194,9 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_common_parsers_.html">&quot;common/parsers&quot;</a>
 					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_common_parsers_cfg_.html">&quot;common/parsers-<wbr>cfg&quot;</a>
+					</li>
 					<li class="current tsd-kind-module">
 						<a href="../modules/_common_parsing_errors_.html">&quot;common/parsing-<wbr>errors&quot;</a>
 					</li>
@@ -193,9 +212,6 @@
 					<li class=" tsd-kind-module">
 						<a href="../modules/_middleware_with_args_index_.html">&quot;middleware-<wbr>with-<wbr>args/index&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/_middleware_with_args_number_parser_cfg_.html">&quot;middleware-<wbr>with-<wbr>args/number-<wbr>parser-<wbr>cfg&quot;</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
@@ -205,6 +221,9 @@
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
 						<a href="_common_parsing_errors_.parsingerrors.html" class="tsd-kind-icon">Parsing<wbr>Errors</a>
 						<ul>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="_common_parsing_errors_.parsingerrors.html#float_rejected" class="tsd-kind-icon">FLOAT_<wbr>REJECTED</a>
+							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
 								<a href="_common_parsing_errors_.parsingerrors.html#missing" class="tsd-kind-icon">MISSING</a>
 							</li>
@@ -231,6 +250,7 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 			</ul>

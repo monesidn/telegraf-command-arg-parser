@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;middleware-with-args/arg-parser-decorator&quot; | telegraf-command-arg-parser</title>
+	<title>&quot;common/parsers-cfg&quot; | telegraf-command-arg-parser</title>
 	<meta name="description" content="Documentation for telegraf-command-arg-parser">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,10 +56,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_middleware_with_args_arg_parser_decorator_.html">&quot;middleware-with-args/arg-parser-decorator&quot;</a>
+					<a href="_common_parsers_cfg_.html">&quot;common/parsers-cfg&quot;</a>
 				</li>
 			</ul>
-			<h1>Module &quot;middleware-with-args/arg-parser-decorator&quot;</h1>
+			<h1>Module &quot;common/parsers-cfg&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -73,14 +73,16 @@
 						<section class="tsd-index-section ">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_middleware_with_args_arg_parser_decorator_.argparserbuilderconfigurer.html" class="tsd-kind-icon">Arg<wbr>Parser<wbr>Builder<wbr>Configurer</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/_middleware_with_args_arg_parser_decorator_.middlewarewithargsfn.html" class="tsd-kind-icon">Middleware<wbr>With<wbr>Args<wbr>Fn</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter"><a href="../interfaces/_common_parsers_cfg_.basicparsercfg.html" class="tsd-kind-icon">Basic<wbr>Parser<wbr>Cfg</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_common_parsers_cfg_.numberparsercfg.html" class="tsd-kind-icon">Number<wbr>Parser<wbr>Cfg</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/_common_parsers_cfg_.oneofparsercfg.html" class="tsd-kind-icon">One<wbr>OfParser<wbr>Cfg</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="_middleware_with_args_arg_parser_decorator_.html#middlewarewithargs" class="tsd-kind-icon">middleware<wbr>With<wbr>Args</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_common_parsers_cfg_.html#validatenumberparsercfg" class="tsd-kind-icon">validate<wbr>Number<wbr>Parser<wbr>Cfg</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_common_parsers_cfg_.html#validateoneofparsercfg" class="tsd-kind-icon">validate<wbr>One<wbr>OfParser<wbr>Cfg</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,48 +90,81 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="middlewarewithargs" class="tsd-anchor"></a>
-					<h3>middleware<wbr>With<wbr>Args</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">middleware<wbr>With<wbr>Args&lt;C&gt;<span class="tsd-signature-symbol">(</span>argBuilder<span class="tsd-signature-symbol">: </span><a href="../classes/_middleware_with_args_arg_parser_builder_.argparserbuilder.html" class="tsd-signature-type">ArgParserBuilder</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_middleware_with_args_arg_parser_decorator_.argparserbuilderconfigurer.html" class="tsd-signature-type">ArgParserBuilderConfigurer</a>, handler<span class="tsd-signature-symbol">: </span><a href="../interfaces/_middleware_with_args_arg_parser_decorator_.middlewarewithargsfn.html" class="tsd-signature-type">MiddlewareWithArgsFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MiddlewareFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="validatenumberparsercfg" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> validate<wbr>Number<wbr>Parser<wbr>Cfg</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">validate<wbr>Number<wbr>Parser<wbr>Cfg<span class="tsd-signature-symbol">(</span>cfg<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_parsers_cfg_.numberparsercfg.html" class="tsd-signature-type">NumberParserCfg</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/monesidn/telegraf-command-arg-parser/blob/a88b979/src/middleware-with-args/arg-parser-decorator.ts#L29">middleware-with-args/arg-parser-decorator.ts:29</a></li>
+									<li>Defined in common/parsers-cfg.ts:68</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Turns a middleware function capable of reading arguments into a telegraf-compliant
-									middleware.</p>
+									<p>Validates a NumberParserCfg object. The validation is performed only
+									while configuring the builder not at every call.</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>An error describing the problem.</p>
+									</dd>
+								</dl>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>C<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">TelegrafContext</span></h4>
-								</li>
-							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>argBuilder: <a href="../classes/_middleware_with_args_arg_parser_builder_.argparserbuilder.html" class="tsd-signature-type">ArgParserBuilder</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/_middleware_with_args_arg_parser_decorator_.argparserbuilderconfigurer.html" class="tsd-signature-type">ArgParserBuilderConfigurer</a></h5>
+									<h5>cfg: <a href="../interfaces/_common_parsers_cfg_.numberparsercfg.html" class="tsd-signature-type">NumberParserCfg</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>A configured argument builder instance or a function that will
-										configure one.</p>
-									</div>
-								</li>
-								<li>
-									<h5>handler: <a href="../interfaces/_middleware_with_args_arg_parser_decorator_.middlewarewithargsfn.html" class="tsd-signature-type">MiddlewareWithArgsFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>A MiddlewareFn that is able to read the parsed command.</p>
+										<div class="lead">
+											<p>The object to validate</p>
+										</div>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MiddlewareFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">C</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="validateoneofparsercfg" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> validate<wbr>One<wbr>OfParser<wbr>Cfg</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">validate<wbr>One<wbr>OfParser<wbr>Cfg<span class="tsd-signature-symbol">(</span>cfg<span class="tsd-signature-symbol">: </span><a href="../interfaces/_common_parsers_cfg_.oneofparsercfg.html" class="tsd-signature-type">OneOfParserCfg</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in common/parsers-cfg.ts:103</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates a OneOfParserCfg object. The validation is performed only
+									while configuring the builder not at every call.</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>throws</dt>
+									<dd><p>An error describing the problem.</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>cfg: <a href="../interfaces/_common_parsers_cfg_.oneofparsercfg.html" class="tsd-signature-type">OneOfParserCfg</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The object to validate</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -153,7 +188,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_common_parsers_.html">&quot;common/parsers&quot;</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class="current tsd-kind-module">
 						<a href="_common_parsers_cfg_.html">&quot;common/parsers-<wbr>cfg&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -165,7 +200,7 @@
 					<li class=" tsd-kind-module">
 						<a href="_middleware_with_args_arg_parser_builder_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>builder&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="_middleware_with_args_arg_parser_decorator_.html">&quot;middleware-<wbr>with-<wbr>args/arg-<wbr>parser-<wbr>decorator&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -175,14 +210,20 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="../interfaces/_middleware_with_args_arg_parser_decorator_.argparserbuilderconfigurer.html" class="tsd-kind-icon">Arg<wbr>Parser<wbr>Builder<wbr>Configurer</a>
-					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="../interfaces/_middleware_with_args_arg_parser_decorator_.middlewarewithargsfn.html" class="tsd-kind-icon">Middleware<wbr>With<wbr>Args<wbr>Fn</a>
+						<a href="../interfaces/_common_parsers_cfg_.basicparsercfg.html" class="tsd-kind-icon">Basic<wbr>Parser<wbr>Cfg</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="_middleware_with_args_arg_parser_decorator_.html#middlewarewithargs" class="tsd-kind-icon">middleware<wbr>With<wbr>Args</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_common_parsers_cfg_.numberparsercfg.html" class="tsd-kind-icon">Number<wbr>Parser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="../interfaces/_common_parsers_cfg_.oneofparsercfg.html" class="tsd-kind-icon">One<wbr>OfParser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_common_parsers_cfg_.html#validatenumberparsercfg" class="tsd-kind-icon">validate<wbr>Number<wbr>Parser<wbr>Cfg</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_common_parsers_cfg_.html#validateoneofparsercfg" class="tsd-kind-icon">validate<wbr>One<wbr>OfParser<wbr>Cfg</a>
 					</li>
 				</ul>
 			</nav>

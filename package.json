@@ -1,6 +1,6 @@
 {
   "name": "telegraf-command-arg-parser",
-  "version": "0.0.1",
+  "version": "0.1.1",
   "description": "Typescript powered command argument parser for telegraf bots.",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "start": "node dist/index.js",
     "clean": "rimraf dist",
     "prepublishOnly": "npm run build && npm run test",
-    "gen-docs": "typedoc --out docs src"
+    "gen-docs": "typedoc --out docs src && echo \"\" > docs/.nojekyll"
   },
   "author": "Daniele Monesi",
   "license": "MIT",

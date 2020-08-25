@@ -5,8 +5,9 @@ import { ParsedArgument } from '../common/parsed-argument';
 import { ParsedCommand } from '../common/parsed-command';
 import { ParserResult } from '../common/parser-result';
 import { Parsers } from '../common/parsers';
+// eslint-disable-next-line max-len
+import { BasicParserCfg, NumberParserCfg, OneOfParserCfg, validateNumberParserCfg, validateOneOfParserCfg } from '../common/parsers-cfg';
 import { MiddlewareWithArgsFn } from './arg-parser-decorator';
-import { NumberParserCfg } from './number-parser-cfg';
 
 /**
  * Internal interface shaping a parser step.
@@ -62,13 +63,8 @@ export class ArgParserBuilder {
      * @returns This builder instance for chaining calls.
      */
     public number(cfg: NumberParserCfg = {}) {
-        this.steps.push((tokens: TokenWithIndexes[]) =>
-            Parsers.number(tokens,
-                cfg.min,
-                cfg.max,
-                cfg.strict,
-                cfg.parser
-            ));
+        validateNumberParserCfg(cfg);
+        this.steps.push((tokens: TokenWithIndexes[]) => Parsers.number(tokens, cfg));
         return this;
     }
 
@@ -76,8 +72,8 @@ export class ArgParserBuilder {
      * Adds a parsing stage to extract a string.
      * @returns This builder instance for chaining calls.
      */
-    public string() {
-        this.steps.push((tokens: TokenWithIndexes[]) => Parsers.string(tokens));
+    public string(cfg: BasicParserCfg<string> = {}) {
+        this.steps.push((tokens: TokenWithIndexes[]) => Parsers.string(tokens, cfg));
         return this;
     }
 
@@ -87,8 +83,9 @@ export class ArgParserBuilder {
      * @param caseSensitive - Whatever to use case-sensitive match (default: `false`)
      * @returns This builder instance for chaining calls.
      */
-    public oneOf(values: string[], caseSensitive = false) {
-        this.steps.push((tokens: TokenWithIndexes[]) => Parsers.oneOf(tokens, values, caseSensitive));
+    public oneOf(cfg: OneOfParserCfg) {
+        validateOneOfParserCfg(cfg);
+        this.steps.push((tokens: TokenWithIndexes[]) => Parsers.oneOf(tokens, cfg));
         return this;
     }
 
